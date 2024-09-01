@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CENTS Assignment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <form id="formNumbers">
+        <div class="form-group">
+            <label for="num1">First number</label>
+            <input type="number" class="form-control" id="num1">
+        </div>
+        <div class="form-group">
+            <label for="num1">Second number</label>
+            <input type="number" class="form-control" id="num2">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div>
+        <p id="result"></p>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+<script>
+    document
+        .getElementById('formNumbers')
+        .addEventListener('submit', function (event) {
+            event.preventDefault();
+            var num1 = document.getElementById('num1').value;
+            var num2 = document.getElementById('num2').value;
+
+            var formData = {
+                num1: num1,
+                num2: num2,
+            };
+
+            fetch('/calculate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    document.getElementById("result").innerHTML = num1 + "+" + num2 + "+" + data.nextPrime + "=" + data.overallSum;
+                })
+                .catch((error) => console.error('Error:', error));
+        });
+</script>
