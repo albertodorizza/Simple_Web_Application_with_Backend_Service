@@ -5,11 +5,10 @@ An assignment for the selection process to CENTS: Simple Web Application with Ba
 # Table of contents
 
 - [Introduction](#introduction)
-- [Installation and Running](#installation-and-running)
+- [Building and Running](#building-and-running)
 - [Project structure](#project-structure)
 - [Future Work](#future-work)
-- [Authors](#authors)
-- [License](#license)
+- [Author](#author)
 
 # Introduction
 
@@ -21,7 +20,6 @@ In particular the objective is that this web application interacts with a backen
 ## Building
 
 ```
-
 npm install
 npm install -g nodemon
 ```
@@ -29,7 +27,6 @@ npm install -g nodemon
 ## Running
 
 ```
-
 npm start OR node app.js OR nodemon app.js
 ```
 
@@ -61,10 +58,6 @@ The main aspects that can be improved in the future of the application are:
 3. Remove the button to do the calculation and display the result dynamically as the input changes.
 4. Improve and test other faster algorithms to effectively find the next highest prime number in the input.
 
-# Authors
+# Author
 
 [Alberto Dorizza](https://www.linkedin.com/in/albertodorizza/)
-
-```
-
-```
