@@ -87,6 +87,3 @@ The main aspects that can be improved in the future of the application are:
 
 [Alberto Dorizza](https://www.linkedin.com/in/albertodorizza/)
 
-```
-
-```
