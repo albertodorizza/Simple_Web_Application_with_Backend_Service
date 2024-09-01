@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+// helper modules to compute the next prime number of the higher input values 
 var np = require('./src/modules/nextPrime');
 
 const app = express();
@@ -9,6 +10,7 @@ const app = express();
 // Parse JSON and url-encoded data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public'));
 
 
 // Handle GET request (home)
@@ -26,10 +28,7 @@ app.post('/calculate', (req, res) => {
     const nextPrimeNumber = np.nextPrime(num1, num2);
     const overallSum = nextPrimeNumber + num1 + num2;
 
-    // Helper printed information
-    console.log('Received POST data:', req.body);
-    console.log('Next prime number:', nextPrimeNumber);
-
+    // Send the result in JSON format
     res.send(JSON.stringify({ nextPrime: nextPrimeNumber, overallSum: overallSum}));
 });
 
